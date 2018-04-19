@@ -1,0 +1,7 @@
+[Unit]
+Description=Collect OpenShift logs
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/collect-oscp-logs
+User=root

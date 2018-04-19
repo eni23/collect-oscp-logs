@@ -1,0 +1,10 @@
+[Unit]
+Description=Collect OpenShift Logs
+
+[Timer]
+OnBootSec=10min
+OnUnitActiveSec=1h
+Unit=collect-oscp-logs.service
+
+[Install]
+WantedBy=multi-user.target
