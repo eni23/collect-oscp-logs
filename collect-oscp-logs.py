@@ -12,8 +12,8 @@ def main():
     old_user = subprocess.check_output([
       "oc",
       "whoami"
-    ])
-    print("was logged in as {0}".format(old_user))
+    ]).strip()
+    print("was logged in as {0}, logging in as system:admin".format(old_user))
     subprocess.check_output([
       "oc",
       "login",
@@ -68,7 +68,7 @@ def main():
       "oc",
       "login",
       "-u",
-      old_user.strip()
+      old_user
     ])
   except subprocess.CalledProcessError:
     print("failed to login as old user")
