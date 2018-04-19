@@ -13,6 +13,7 @@ def main():
       "oc",
       "whoami"
     ])
+    print("was logged in as {0}".format(old_user))
     subprocess.check_output([
       "oc",
       "login",
@@ -62,11 +63,12 @@ def main():
         print("failed to get logs")
 
   try:
-    old_user = subprocess.check_output([
+    print("logging back in as {0}".format(old_user))
+    subprocess.check_output([
       "oc",
       "login",
       "-u",
-      old_user
+      old_user.strip()
     ])
   except subprocess.CalledProcessError:
     print("failed to login as old user")
