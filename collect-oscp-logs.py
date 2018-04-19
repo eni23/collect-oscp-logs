@@ -9,6 +9,16 @@ log_location = "/var/log/oscp-logs"
 def main():
 
   try:
+    old_user = subprocess.check_output([
+      "oc",
+      "whoami"
+    ])
+    subprocess.check_output([
+      "oc",
+      "login",
+      "-u",
+      "system:admin"
+    ])
     oc_output = subprocess.check_output([
       "oc",
       "get",
@@ -51,6 +61,16 @@ def main():
       except subprocess.CalledProcessError:
         print("failed to get logs")
 
+    try:
+      old_user = subprocess.check_output([
+        "oc",
+        "login",
+        "-u",
+        "system:admin"
+      ])
+    except subprocess.CalledProcessError:
+      print("failed to login as old user")
+      
   sys.exit(0)
 
 
