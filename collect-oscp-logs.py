@@ -66,11 +66,11 @@ def main():
         "oc",
         "login",
         "-u",
-        "system:admin"
+        old_user
       ])
     except subprocess.CalledProcessError:
       print("failed to login as old user")
-      
+
   sys.exit(0)
 
 
