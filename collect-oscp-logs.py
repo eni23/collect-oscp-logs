@@ -61,15 +61,15 @@ def main():
       except subprocess.CalledProcessError:
         print("failed to get logs")
 
-    try:
-      old_user = subprocess.check_output([
-        "oc",
-        "login",
-        "-u",
-        old_user
-      ])
-    except subprocess.CalledProcessError:
-      print("failed to login as old user")
+  try:
+    old_user = subprocess.check_output([
+      "oc",
+      "login",
+      "-u",
+      old_user
+    ])
+  except subprocess.CalledProcessError:
+    print("failed to login as old user")
 
   sys.exit(0)
 
