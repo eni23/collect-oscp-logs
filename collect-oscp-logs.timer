@@ -3,7 +3,7 @@ Description=Collect OpenShift Logs
 
 [Timer]
 OnBootSec=10min
-OnUnitActiveSec=1h
+OnUnitActiveSec=24h
 Unit=collect-oscp-logs.service
 
 [Install]
